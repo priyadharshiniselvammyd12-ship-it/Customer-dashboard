@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Customer Dashboard</title>
+  <meta charset="UTF-8">
+  <title>Customer Order Dashboard</title>
+
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -10,19 +11,46 @@
 <div class="container">
   <aside class="sidebar">
     <h2>Customer</h2>
-    <p>Dashboard</p>
+    <p class="active">Dashboard</p>
     <p>Orders</p>
     <p>Reports</p>
   </aside>
   <main class="main">
     <header class="header">
-      <h2>Customer Dashboard</h2>
-      <div>
-        <button id="addChartBtn">Add Chart</button>
-        <button onclick="addKPI()">Add KPI</button>
-      </div>
+      <h2>Order Dashboard</h2>
     </header>
-    <section id="widgetArea" class="dashboard"></section>
+    <div class="order-form">
+      <input type="text" id="product" placeholder="Product Name">
+      <input type="number" id="quantity" placeholder="Quantity">
+      <input type="number" id="price" placeholder="Unit Price">
+      <button onclick="addOrder()">Add Order</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Unit Price</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="orderTable"></tbody>
+    </table>
+    <div id="chartSection" class="dashboard hidden">
+      <div class="widget">
+        <h3>Sales Bar Chart</h3>
+        <canvas id="barChart"></canvas>
+      </div>
+      <div class="widget">
+        <h3>Sales Pie Chart</h3>
+        <canvas id="pieChart"></canvas>
+      </div>
+      <div class="widget">
+        <h3>Sales Line Chart</h3>
+        <canvas id="lineChart"></canvas>
+      </div>
+    </div>
   </main>
 </div>
 <script src="script.js"></script>
